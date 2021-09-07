@@ -14,6 +14,7 @@ class ModelDe extends Component {
                 </Modal.Header>
                 <Modal.Body>
                 <img src={this.props.img} className="img-fluid" ></img>
+                <br />
                 Description : {this.props.description}
                 <br />
                 Number Of Horns : {this.props.horns}</Modal.Body>
