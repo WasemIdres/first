@@ -8,18 +8,15 @@ class Main extends Component {
         
         return (
             <div>
-                
-                        <HornedBeast
-                            handleOpen={this.props.handleOpen}
-                            title={this.props.title}
-                            image_url={this.props.image_url}
-                            description ={this.props.description}
-                            keyword={this.props.keyword}
-                            horns={this.props.horns}
-                            img={this.props.image_url}
-                        />
-                 
-                
+                    <HornedBeast
+                    handleOpen={this.props.handleOpen}
+                    title={this.props.title}
+                    image_url={this.props.image_url}
+                    description ={this.props.description}
+                    keyword={this.props.keyword}
+                    horns={this.props.horns}
+                    img={this.props.image_url}
+                    />        
             </div>
             )
     }

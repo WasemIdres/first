@@ -5,7 +5,8 @@ import Main from "./components/Main";
 import SelectedBeast from "./components/SelectedBeast"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import data from './data.json'
-
+import Form from "./components/Form";
+import formstyle from "./components/formstyle.css";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -14,7 +15,9 @@ class App extends Component {
       description: "",
       horns: 0,
       img: "",
-      keyword: ""
+      keyword: "",
+      showUser: false,
+      speciality: "",
     }
   }
   handleClose = () => {
@@ -31,33 +34,62 @@ class App extends Component {
       keyword: keyword
     })
   }
-  
-  render() 
-  {
-    let mystyle = {
-      display:'grid',
-      gridTemplateColumns:"auto auto auto auto auto",
-      rowGap:"20px",
-  };
-    console.log(data[0].title)
+  handleSelect = (e) => {
+    let speciality = e.target.value;
+    this.setState({
+      speciality: speciality,
+      showUser:false
+    });
+    // console.log(this.state.speciality);
+  }
+  handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('You clicked submit.');
+    this.setState({
+      showUser:true
+    })
+    console.log(this.state.showUser);
+    console.log(this.state.speciality);
+  }
+  filterArray =(arr)=>{
+    if (this.state.showUser === false ||this.state.speciality ==="all") {
+      return arr;
+    }
+    else if (this.state.showUser === true) {
+      return arr.filter(Element => {
+        return Element.horns === parseInt(this.state.speciality);
+      })
+    }
+  }
+
+  render() {
+
     return (
       <>
         <Header />
-        <div className="cr" style={mystyle}>
- {
-      data.map(item =>{
-          return <Main  
-            handleOpen={this.handleOpen}
-            title={item.title}
-            image_url={item.image_url}
-            description={item.description}
-            keyword={item.keyword}
-            horns={item.horns}
-            img={item.image_url}
-            />
-        })
-      } 
-      </div>     
+        <div>
+        <Form
+        handleSelect={this.handleSelect}
+        handleSubmit={this.handleSubmit}
+        speciality={this.state.speciality}
+        showUser={this.state.showUser}
+        />
+        </div>
+        <div className="cr" >
+          {
+           this.filterArray(data).map(item => {
+              return <Main
+                handleOpen={this.handleOpen}
+                title={item.title}
+                image_url={item.image_url}
+                description={item.description}
+                keyword={item.keyword}
+                img={item.image_url}
+                horns={item.horns}
+              />
+            })
+          }
+        </div>
         <Footer />
         <SelectedBeast handleClose={this.handleClose}
           showModal={this.state.showModal}
@@ -65,6 +97,7 @@ class App extends Component {
           horns={this.state.horns}
           img={this.state.img}
           keyword={this.state.keyword} />
+
       </>
     )
   }
