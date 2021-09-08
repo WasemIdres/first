@@ -1,0 +1,28 @@
+
+.cr{
+    display: grid;
+    grid-template-columns: auto auto auto auto ;
+    row-gap: 20px;
+    column-gap: 5px;
+}
+.form {
+    display: flex;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.form button{
+    width: 250px;
+}
+.dropdown div{
+    width: 250px;
+}
+body{
+    margin-left: 15px;
+}
+select{
+    margin-right: 130px;
+    width: 250px;
+    height:38px;
+}
