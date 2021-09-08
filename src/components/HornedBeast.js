@@ -16,7 +16,13 @@ class HornedBeas extends Component {
             stateFav: this.state.stateFav + 1
         })
     }
-
+    getHandleOpen=()=>{
+        let description=this.props.description;
+        let horns=this.props.horns;
+        let img=this.props.img;
+        let keyword=this.props.keyword;
+        this.props.handleOpen(description,horns,img,keyword);
+    }
 
     render() {
         return (
@@ -45,7 +51,7 @@ class HornedBeas extends Component {
                                 🧡💛💙 number of favorite : {this.state.stateFav}
                             </Card.Text>
                             <Button
-                                onClick={this.props.start}
+                                onClick={this.getHandleOpen}
                                 variant="primary"
                             >
                                 See description
