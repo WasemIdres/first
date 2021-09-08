@@ -36,7 +36,7 @@ class App extends Component {
   {
     let mystyle = {
       display:'grid',
-      gridTemplateColumns:"auto auto auto auto auto auto",
+      gridTemplateColumns:"auto auto auto auto auto",
       rowGap:"20px",
   };
     console.log(data[0].title)
