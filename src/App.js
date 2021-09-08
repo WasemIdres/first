@@ -18,7 +18,7 @@ class App extends Component {
       keyword: "",
       showUser: false,
       speciality: "",
-      saver:"",
+      saver: "",
     }
   }
   handleClose = () => {
@@ -46,25 +46,42 @@ class App extends Component {
     e.preventDefault();
     console.log('You clicked submit.');
     this.setState({
-      showUser:true,
-      saver:this.state.speciality,
+      showUser: true,
+      saver: this.state.speciality,
     })
     console.log(this.state.showUser);
     console.log(this.state.speciality);
+    console.log(this.state.saver);
+
   }
-  filterArray =(arr)=>{
-    if (this.state.showUser === false || this.state.speciality ==="all") {
+  filterArray = (arr) => {
+    if (this.state.showUser === false) {
       return arr;
     }
-    if(this.state.speciality !== this.state.saver){
+    else if (this.state.speciality !== this.state.saver && this.state.saver !== "all") {
       return arr.filter(Element => {
         return Element.horns === parseInt(this.state.saver);
       })
     }
-    else if (this.state.showUser === true ) {
+    else if (this.state.speciality === "all") {
+      this.setState({
+        showUser: false,
+        saver: this.state.speciality,
+      })
+      return arr;
+    }
+    else if (this.state.speciality == "") {
+      this.setState({
+        showUser: false,
+        saver: "all",
+      })
+      return arr;
+    }
+    else if (this.state.showUser === true) {
       return arr.filter(Element => {
         return Element.horns === parseInt(this.state.speciality);
       })
+
     }
   }
 
@@ -74,16 +91,16 @@ class App extends Component {
       <>
         <Header />
         <div>
-        <Form
-        handleSelect={this.handleSelect}
-        handleSubmit={this.handleSubmit}
-        speciality={this.state.speciality}
-        showUser={this.state.showUser}
-        />
+          <Form
+            handleSelect={this.handleSelect}
+            handleSubmit={this.handleSubmit}
+            speciality={this.state.speciality}
+            showUser={this.state.showUser}
+          />
         </div>
         <div className="cr" >
           {
-           this.filterArray(data).map(item => {
+            this.filterArray(data).map(item => {
               return <Main
                 handleOpen={this.handleOpen}
                 title={item.title}
