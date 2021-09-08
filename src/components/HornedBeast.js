@@ -24,9 +24,15 @@ class HornedBeas extends Component {
         this.props.handleOpen(description,horns,img,keyword);
     }
 
+
     render() {
+        let mystyle = {
+            display:'grid',
+            gridTemplateColumns:"auto auto auto auto auto auto",
+            rowGap:"20px",
+        };
         return (
-             <div className="row" >
+             <div className="cr" style={mystyle} >
                 {/* <h2>title: {this.props.title}</h2>
                 <img onClick={this.favTimes} src = {this.props.image_url}  alt = 'HornedBeas' title = {this.props.title} style={{width: "500px"}}></img>
                 <p>🧡💛💙 number of favorite : {this.state.stateFav}</p>   */}
