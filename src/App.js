@@ -18,6 +18,7 @@ class App extends Component {
       keyword: "",
       showUser: false,
       speciality: "",
+      saver:"",
     }
   }
   handleClose = () => {
@@ -38,7 +39,6 @@ class App extends Component {
     let speciality = e.target.value;
     this.setState({
       speciality: speciality,
-      showUser:false
     });
     // console.log(this.state.speciality);
   }
@@ -46,16 +46,22 @@ class App extends Component {
     e.preventDefault();
     console.log('You clicked submit.');
     this.setState({
-      showUser:true
+      showUser:true,
+      saver:this.state.speciality,
     })
     console.log(this.state.showUser);
     console.log(this.state.speciality);
   }
   filterArray =(arr)=>{
-    if (this.state.showUser === false ||this.state.speciality ==="all") {
+    if (this.state.showUser === false || this.state.speciality ==="all") {
       return arr;
     }
-    else if (this.state.showUser === true) {
+    if(this.state.speciality !== this.state.saver){
+      return arr.filter(Element => {
+        return Element.horns === parseInt(this.state.saver);
+      })
+    }
+    else if (this.state.showUser === true ) {
       return arr.filter(Element => {
         return Element.horns === parseInt(this.state.speciality);
       })
