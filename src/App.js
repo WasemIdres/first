@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import data from './data.json'
 import Form from "./components/Form";
 import formstyle from "./components/formstyle.css";
+import NewForm from "./components/NewForm";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -91,11 +92,17 @@ class App extends Component {
       <>
         <Header />
         <div>
-          <Form
+          {/* <Form
             handleSelect={this.handleSelect}
             handleSubmit={this.handleSubmit}
             speciality={this.state.speciality}
             showUser={this.state.showUser}
+          /> */}
+          <NewForm
+          handleSelect={this.handleSelect}
+          handleSubmit={this.handleSubmit}
+          speciality={this.state.speciality}
+          showUser={this.state.showUser}
           />
         </div>
         <div className="cr" >
