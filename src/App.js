@@ -20,6 +20,7 @@ class App extends Component {
       showUser: false,
       speciality: "",
       saver: "",
+      favTimes:0,
     }
   }
   handleClose = () => {
