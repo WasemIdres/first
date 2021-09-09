@@ -7,8 +7,8 @@
 }
 .form {
     display: grid;
-    grid-template-columns: 250px 250px;
-    column-gap: 128px;
+    grid-template-columns: 285px 250px;
+    column-gap: 90px;
     margin-bottom: 10px;
     margin-top: 10px;
     padding-bottom: 10px;
