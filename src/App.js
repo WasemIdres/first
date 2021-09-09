@@ -99,26 +99,19 @@ class App extends Component {
             showUser={this.state.showUser}
           /> */}
           <NewForm
+          
           handleSelect={this.handleSelect}
           handleSubmit={this.handleSubmit}
           speciality={this.state.speciality}
           showUser={this.state.showUser}
           />
         </div>
-        <div className="cr" >
-          {
-            this.filterArray(data).map(item => {
-              return <Main
+        <div  >
+               <Main
+                data={data}
+                filterArray={this.filterArray}
                 handleOpen={this.handleOpen}
-                title={item.title}
-                image_url={item.image_url}
-                description={item.description}
-                keyword={item.keyword}
-                img={item.image_url}
-                horns={item.horns}
               />
-            })
-          }
         </div>
         <Footer />
         <SelectedBeast handleClose={this.handleClose}
