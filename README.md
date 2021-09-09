@@ -98,3 +98,19 @@ Start time: 2:30
 Finish time: 3:30
 
 Actual time needed to complete: 1 hour
+
+- lab 4
+
+Number and name of feature: 
+
+1.  build a drop down menu that filter beasts on number of horns from bootstrap
+2.  site deployed on netlify 
+
+Estimate of time needed to complete: 1 hour to 2 hours
+
+Start time: 2:30
+
+Finish time: 12:30
+
+
+Actual time needed to complete: 3 hours (took many breaks while solving the lab)
